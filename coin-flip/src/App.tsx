@@ -35,15 +35,22 @@ function App() {
 
 function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
   return (
-    <GenericModal header="Ready Player Nr.1" open={open} close={close}>
+    <GenericModal header="Ready player Nr. 1" open={open} close={close}>
       <div>
         <IconButton
+          style={{ position: "absolute", top: 0, right: 0, color: "white" }}
           onClick={() => {
             close();
           }}
         >
           <CloseIcon />
         </IconButton>
+        <img src={coinIcon} className="logo " alt="logo" />
+        <img src={coinIcon} className="logo " alt="logo" />
+        <Typography variant="h4">Choose head or tail</Typography>
+        <Button sx={{ position: "absolute" }} variant="contained">
+          Play
+        </Button>
       </div>
     </GenericModal>
   );
