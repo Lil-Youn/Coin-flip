@@ -30,8 +30,8 @@ const GenericModal = ({ header, open, close, children }: GenericModalProps) => {
         aria-describedby="modal-modal-description"
       >
         <Box
-          width={650}
-          height={400}
+          width={700}
+          height={450}
           bgcolor={"#242424"}
           p={5}
           borderRadius={10}
