@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import "./App.css";
 import coinIcon from "./assets/coin-icon.png";
 
@@ -10,17 +10,20 @@ function App() {
   return (
     <>
       <div>
-        <img src={coinIcon} className="logo react" alt="React logo" />
+        <a>
+          <img src={coinIcon} className="logo " alt="logo" />
+        </a>
       </div>
       <Typography variant="h1">Coin flip</Typography>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <Button
+          variant="contained"
+          onClick={() => setCount((count) => count + 1)}
+        >
           count is {count}
-        </button>
+        </Button>
       </div>
-      <Typography variant="h5">
-        Click on the Vite and React logos to learn more
-      </Typography>
+      <Typography variant="h5">Click on the Coin to start</Typography>
     </>
   );
 }
