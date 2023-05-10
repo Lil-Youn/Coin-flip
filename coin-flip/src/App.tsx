@@ -34,6 +34,10 @@ function App() {
 }
 
 function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
+  const [head, setHead] = useState(false);
+  const [tail, setTail] = useState(false);
+  console.log(head);
+  console.log(tail);
   return (
     <GenericModal header="Ready player Nr. 1" open={open} close={close}>
       <div>
@@ -45,8 +49,18 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
         >
           <CloseIcon />
         </IconButton>
-        <img src={coinIcon} className="logo " alt="logo" />
-        <img src={coinIcon} className="logo " alt="logo" />
+        <img
+          onClick={() => setHead(true)}
+          src={coinIcon}
+          className="logo "
+          alt="logo"
+        />
+        <img
+          onClick={() => setTail(true)}
+          src={coinIcon}
+          className="logo "
+          alt="logo"
+        />
         <Typography variant="h4">Choose head or tail</Typography>
         <Button sx={{ position: "absolute" }} variant="contained">
           Play
