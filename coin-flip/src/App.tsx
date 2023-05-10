@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-import coinIcon from "./assets/coin-icon.png";
+import { Typography } from "@mui/material";
 import "./App.css";
+import coinIcon from "./assets/coin-icon.png";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,13 +12,15 @@ function App() {
       <div>
         <img src={coinIcon} className="logo react" alt="React logo" />
       </div>
-      <h1>Coin flip</h1>
+      <Typography variant="h1">Coin flip</Typography>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
       </div>
-      <p>Click on the Vite and React logos to learn more</p>
+      <Typography variant="h5">
+        Click on the Vite and React logos to learn more
+      </Typography>
     </>
   );
 }
