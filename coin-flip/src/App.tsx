@@ -36,6 +36,15 @@ function App() {
 function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
   const [head, setHead] = useState(false);
   const [tail, setTail] = useState(false);
+  const handleHeadClick = () => {
+    setHead(true);
+    setTail(false);
+  };
+
+  const handleTailClick = () => {
+    setHead(false);
+    setTail(true);
+  };
   console.log(head);
   console.log(tail);
   return (
@@ -53,7 +62,7 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div style={{ textAlign: "center" }}>
               <img
-                onClick={() => setHead(true)}
+                onClick={handleHeadClick}
                 src={coinIcon}
                 className="logo "
                 alt="logo"
@@ -62,7 +71,7 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
             </div>
             <div style={{ textAlign: "center" }}>
               <img
-                onClick={() => setTail(true)}
+                onClick={handleTailClick}
                 src={coinIcon}
                 className="logo "
                 alt="logo"
@@ -73,6 +82,9 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
         </Box>
         <div style={{ textAlign: "center" }}>
           <Typography variant="h4">Choose head or tail</Typography>
+          <Typography>
+            You chose {head ? "Head" : tail ? "Tail" : ""}
+          </Typography>
         </div>
 
         <Button
