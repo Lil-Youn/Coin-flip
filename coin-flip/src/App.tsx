@@ -36,6 +36,7 @@ function App() {
 function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
   const [head, setHead] = useState(false);
   const [tail, setTail] = useState(false);
+  const [result, setResult] = useState<"head" | "tail" | "">("");
   const handleHeadClick = () => {
     setHead(true);
     setTail(false);
@@ -45,13 +46,17 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
     setHead(false);
     setTail(true);
   };
-  console.log(head);
-  console.log(tail);
+
+  const handlePlayClick = () => {
+    const randomResult = Math.random() < 0.5 ? "head" : "tail";
+    setResult(randomResult);
+  };
+
   return (
-    <GenericModal header="Ready player Nr. 1" open={open} close={close}>
+    <GenericModal header="Choose head or tail" open={open} close={close}>
       <div>
         <IconButton
-          style={{ position: "absolute", top: 0, right: 0, color: "white" }}
+          style={{ position: "absolute", top: -3, right: 150, color: "white" }}
           onClick={() => {
             close();
           }}
@@ -81,21 +86,37 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
           </div>
         </Box>
         <div style={{ textAlign: "center" }}>
-          <Typography variant="h4">Choose head or tail</Typography>
           <Typography>
             You chose {head ? "Head" : tail ? "Tail" : ""}
           </Typography>
         </div>
 
         <Button
-          sx={{ display: "flex", position: "absolute" }}
+          sx={{ margin: "15px", display: "flex", position: "absolute" }}
           variant="contained"
+          onClick={handlePlayClick}
         >
           Play
         </Button>
+        <div>
+          {result && (
+            <Typography
+              variant="h4"
+              style={{ marginTop: "100px", textAlign: "center" }}
+            >
+              {result === "head"
+                ? "The coin landed on Head"
+                : "The coin landed on Tail"}
+              {head && result === "head"
+                ? ", you win!"
+                : tail && result === "tail"
+                ? ", you win!"
+                : ", you lose!"}
+            </Typography>
+          )}
+        </div>
       </div>
     </GenericModal>
   );
 }
-
 export default App;
