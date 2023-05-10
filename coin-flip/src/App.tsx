@@ -50,6 +50,7 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
   const handlePlayClick = () => {
     const randomResult = Math.random() < 0.5 ? "head" : "tail";
     setResult(randomResult);
+    console.log(randomResult);
   };
 
   return (
