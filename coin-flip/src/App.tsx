@@ -49,20 +49,36 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
         >
           <CloseIcon />
         </IconButton>
-        <img
-          onClick={() => setHead(true)}
-          src={coinIcon}
-          className="logo "
-          alt="logo"
-        />
-        <img
-          onClick={() => setTail(true)}
-          src={coinIcon}
-          className="logo "
-          alt="logo"
-        />
-        <Typography variant="h4">Choose head or tail</Typography>
-        <Button sx={{ position: "absolute" }} variant="contained">
+        <Box>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <div style={{ textAlign: "center" }}>
+              <img
+                onClick={() => setHead(true)}
+                src={coinIcon}
+                className="logo "
+                alt="logo"
+              />
+              <Typography>Head</Typography>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <img
+                onClick={() => setTail(true)}
+                src={coinIcon}
+                className="logo "
+                alt="logo"
+              />
+              <Typography>Tail</Typography>
+            </div>
+          </div>
+        </Box>
+        <div style={{ textAlign: "center" }}>
+          <Typography variant="h4">Choose head or tail</Typography>
+        </div>
+
+        <Button
+          sx={{ display: "flex", position: "absolute" }}
+          variant="contained"
+        >
           Play
         </Button>
       </div>
