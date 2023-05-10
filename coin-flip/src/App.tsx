@@ -12,7 +12,12 @@ function App() {
       <Box>
         <div>
           <a>
-            <img src={coinIcon} className="logo " alt="logo" />
+            <img
+              onClick={() => setModalOpenCoin(true)}
+              src={coinIcon}
+              className="logo "
+              alt="logo"
+            />
           </a>
         </div>
         <Typography variant="h1">Coin flip</Typography>
@@ -91,18 +96,19 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
             You chose {head ? "Head" : tail ? "Tail" : ""}
           </Typography>
         </div>
-
-        <Button
-          sx={{ margin: "15px", display: "flex", position: "absolute" }}
-          variant="contained"
-          onClick={handlePlayClick}
-        >
-          Play
-        </Button>
+        <div>
+          <Button
+            sx={{ margin: "15px", display: "flex", position: "absolute" }}
+            variant="contained"
+            onClick={handlePlayClick}
+          >
+            Play
+          </Button>
+        </div>
         <div>
           {result && (
             <Typography
-              variant="h4"
+              variant="h5"
               style={{ marginTop: "100px", textAlign: "center" }}
             >
               {result === "head"
