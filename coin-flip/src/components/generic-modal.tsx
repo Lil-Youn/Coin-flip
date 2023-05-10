@@ -29,7 +29,13 @@ const GenericModal = ({ header, open, close, children }: GenericModalProps) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box width={650} height={400} bgcolor={"#fff"} p={5} borderRadius={10}>
+        <Box
+          width={650}
+          height={400}
+          bgcolor={"#242424"}
+          p={5}
+          borderRadius={10}
+        >
           <Typography variant="h5" textAlign="center">
             {header}
           </Typography>
