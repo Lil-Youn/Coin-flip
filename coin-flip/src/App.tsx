@@ -53,6 +53,11 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
   };
 
   const handlePlayClick = () => {
+    if (!head && !tail) {
+      setResult("");
+      alert("Please choose  head or tail");
+      return;
+    }
     const randomResult = Math.random() < 0.5 ? "head" : "tail";
     setResult(randomResult);
     console.log(randomResult);
@@ -70,7 +75,7 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
           <CloseIcon />
         </IconButton>
         <Box>
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ textAlign: "center" }}>
               <img
                 onClick={handleHeadClick}
@@ -96,20 +101,21 @@ function CoinFlipGame({ open, close }: { open: boolean; close: () => void }) {
             You chose {head ? "Head" : tail ? "Tail" : ""}
           </Typography>
         </div>
-        <div>
+        <div style={{ textAlign: "center" }}>
           <Button
-            sx={{ margin: "15px", display: "flex", position: "absolute" }}
+            sx={{ margin: "15px" }}
             variant="contained"
             onClick={handlePlayClick}
           >
             Play
           </Button>
         </div>
+
         <div>
           {result && (
             <Typography
               variant="h5"
-              style={{ marginTop: "100px", textAlign: "center" }}
+              style={{ marginTop: "50px", textAlign: "center" }}
             >
               {result === "head"
                 ? "The coin landed on Head"
